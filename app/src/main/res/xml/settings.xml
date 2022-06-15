@@ -1,0 +1,36 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Task">
+        <SwitchPreferenceCompat
+            android:title="TaskOptions"
+            app:key="task_option_preference"
+            app:title="Hide completed tasks" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Category">
+        <ListPreference
+            android:title="ChooseCategory"
+            app:defaultValue="Other"
+            app:entries="@array/Categories"
+            app:entryValues="@array/Categories_values"
+            app:key="category_preference"
+            app:title="Choose category"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Notification">
+        <ListPreference
+            android:title="TimeNotification"
+            app:defaultValue="5 min"
+            app:entries="@array/Notification"
+            app:entryValues="@array/Notification_values"
+            app:key="notification_preference"
+            app:title="Time notification"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
