@@ -136,11 +136,12 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
     public void createNotificationChannel() {
         CharSequence name = "testChannel";
-        String description = "des";
+        //String description = "des";
 
         int importance = NotificationManager.IMPORTANCE_DEFAULT;
-        NotificationChannel channel = new NotificationChannel("channel1", name, importance);
-        channel.setDescription(description);
+
+        NotificationChannel channel = new NotificationChannel("channelID", name, importance);
+        //channel.setDescription(description);
 
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(channel);

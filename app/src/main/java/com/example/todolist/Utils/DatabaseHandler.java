@@ -33,6 +33,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         super(context, NAME, null, VERSION);
     }
 
+    public void openDatabase() {
+        db = this.getWritableDatabase();
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TODO_TABLE);
@@ -40,14 +44,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TODO_TABLE);
-        // Create tables again
         onCreate(db);
-    }
-
-    public void openDatabase() {
-        db = this.getWritableDatabase();
     }
 
     public void insertTask(ToDoModel task){

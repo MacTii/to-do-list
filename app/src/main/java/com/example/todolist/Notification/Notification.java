@@ -13,7 +13,7 @@ import com.example.todolist.R;
 public class Notification extends BroadcastReceiver {
 
     private static final int NOTIFICATION_ID = 1;
-    private static final String CHANNEL_ID = "channel1";
+    private static final String CHANNEL_ID = "channelID";
     private static final String TITLE_EXTRA = "titleExtra";
     private static final String MESSAGE_EXTRA = "messageExtra";
 
