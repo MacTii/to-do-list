@@ -1,6 +1,7 @@
 package com.example.todolist.Activity;
 
 import static android.app.PendingIntent.FLAG_IMMUTABLE;
+import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -149,6 +150,11 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
     public void setAlarm(ToDoModel task) {
         Intent intent = new Intent(MainActivity.this, Notification.class);
+
+        // Set title and message of notification
+        intent.putExtra("titleExtra", task.getTaskTitle());
+        intent.putExtra("messageExtra", task.getTask());
+
         PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent, FLAG_IMMUTABLE);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
