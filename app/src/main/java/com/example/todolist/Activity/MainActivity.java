@@ -120,6 +120,10 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if(key.equals("task_option_preference")) {
             if(sharedPreferences.getBoolean("task_option_preference", false)) {
+
+                db.openDatabase();
+                taskList = db.getAllTasks();
+
                 filterListHideItems(taskList);
             }
             else {
@@ -197,14 +201,18 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
     private void filterListHideItems(List<ToDoModel> taskList) {
         List<ToDoModel> filteredList = new ArrayList<>();
         for (int i = 0; i < taskList.size(); i++) {
+            System.out.println(taskList.get(i).getStatus());
+            System.out.println(toBoolean(taskList.get(i).getStatus()));
             if (!toBoolean(taskList.get(i).getStatus())) {
                 System.out.println("index = " + i);
                 filteredList.add(taskList.get(i));
             }
         }
-        if(!filteredList.isEmpty()) {
-            tasksAdapter.setFilteredList(filteredList);
-        }
+//        if(!filteredList.isEmpty()) {
+//            System.out.println("EMPTY");
+//            tasksAdapter.setFilteredList(filteredList);
+//        }
+        tasksAdapter.setFilteredList(filteredList);
     }
 
     private void filterListCategory(List<ToDoModel> taskList, String category) {

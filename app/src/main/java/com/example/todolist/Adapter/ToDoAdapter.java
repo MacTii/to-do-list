@@ -62,6 +62,8 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     db.updateStatus(item.getId(), 1);
+                    // db.getAllTasks();
+                    // System.out.println(db.getAllTasks());
                 } else {
                     db.updateStatus(item.getId(), 0);
                 }
